@@ -70,7 +70,7 @@ with col1:
     # Academic level selection
     academic_level = st.selectbox(
         "Academic Level",
-        ["high-school", "undergraduate", "graduate", "phd"],
+        ["High-School", "Undergraduate", "Graduate", "Ph.D."],
         index=1
     )
     
