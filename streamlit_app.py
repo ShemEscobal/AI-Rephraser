@@ -59,7 +59,7 @@ st.markdown("""
 
 # App header
 st.markdown("<h1 class='main-header'>Academic Paraphraser</h1>", unsafe_allow_html=True)
-st.markdown("<p class='subheader'>Powered by AI - Paraphrase academic text naturally</p>", unsafe_allow_html=True)
+st.markdown("<p class='subheader'>by Shem Escobal - Paraphrase academic text naturally</p>", unsafe_allow_html=True)
 
 # Create two columns for layout
 col1, col2 = st.columns([1, 2])
