@@ -195,17 +195,12 @@ with col2:
                         # Display the result in the container
                         with result_container:
                             st.markdown("### Paraphrased Text")
-                            st.markdown(f"""
-                            <div class="output-container">
-                                <div class="result-text">{paraphrased_text}</div>
-                            </div>
-                            """, unsafe_allow_html=True)
                             
-                            # Create a text area for easy copying
+                            # Create a text area for the paraphrased text that serves both display and copy purposes
                             st.text_area(
-                                "Copy from here:",
+                                "",  # No label needed as we already have the header
                                 value=paraphrased_text,
-                                height=150,
+                                height=200,
                                 key="paraphrased_output"
                             )
                             
