@@ -39,6 +39,7 @@ st.markdown("""
         border-radius: 10px;
         padding: 20px;
         border: 1px solid #e9ecef;
+        margin-bottom: 20px;
     }
     .info-box {
         background-color: #e7f5ff;
@@ -46,6 +47,12 @@ st.markdown("""
         padding: 15px;
         border: 1px solid #b8daff;
         margin-bottom: 20px;
+    }
+    .result-text {
+        white-space: pre-wrap;
+        font-size: 16px;
+        line-height: 1.6;
+        padding: 15px;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -119,6 +126,9 @@ with col2:
         word_count = len(original_text.split())
         st.caption(f"{word_count} words")
     
+    # Create a container for results
+    result_container = st.container()
+    
     # Paraphrase button
     if st.button("Paraphrase", type="primary"):
         if not original_text:
@@ -182,20 +192,34 @@ with col2:
                         if "Alternatively:" in paraphrased_text:
                             paraphrased_text = paraphrased_text.split("Alternatively:")[0].strip()
                         
-                        # Display the result
-                        st.markdown("### Paraphrased Text")
-                        st.markdown("<div class='output-container'>", unsafe_allow_html=True)
-                        st.write(paraphrased_text)
-                        st.markdown("</div>", unsafe_allow_html=True)
-                        
-                        # Add a copy button
-                        st.button(
-                            "Copy to Clipboard",
-                            on_click=lambda: st.write(
-                                f'<script>navigator.clipboard.writeText("{paraphrased_text.replace(chr(34), chr(39))}"); alert("Copied to clipboard!");</script>',
-                                unsafe_allow_html=True
+                        # Display the result in the container
+                        with result_container:
+                            st.markdown("### Paraphrased Text")
+                            st.markdown(f"""
+                            <div class="output-container">
+                                <div class="result-text">{paraphrased_text}</div>
+                            </div>
+                            """, unsafe_allow_html=True)
+                            
+                            # Create a text area for easy copying
+                            st.text_area(
+                                "Copy from here:",
+                                value=paraphrased_text,
+                                height=150,
+                                key="paraphrased_output"
                             )
-                        )
+                            
+                            # Add a copy button
+                            if st.button("Copy to Clipboard"):
+                                st.success("Text copied to clipboard!")
+                                st.markdown(
+                                    f"""
+                                    <script>
+                                        navigator.clipboard.writeText(`{paraphrased_text.replace('`', '\\`')}`);
+                                    </script>
+                                    """,
+                                    unsafe_allow_html=True
+                                )
                     else:
                         error_msg = "Failed to get proper response from API"
                         if 'error' in response_data:
