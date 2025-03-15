@@ -70,6 +70,7 @@ def paraphrase():
         - Paraphrase only the texts that is being entered by the user.
         - Do not produce additional notes and explanations.
         - Just produce the paraphrased text paragraphs.
+        - Produce only the one best paraphrased texts.
         
         Original text: {text}
         
