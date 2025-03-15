@@ -67,6 +67,9 @@ def paraphrase():
         - Don't add unnecessary explanations or notes
         - Don't include placeholders like "(Author's Last Name, Year)" unless they're in the original text
         - Focus on rewording while preserving the original meaning and tone
+        - Paraphrase only the texts that is being entered by the user.
+        - Do not produce additional notes and explanations.
+        - Just produce the paraphrased text paragraphs.
         
         Original text: {text}
         
