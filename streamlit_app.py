@@ -147,7 +147,8 @@ with col2:
                     - Keep the paraphrased text concise and clear
                     - Don't add unnecessary explanations or notes
                     - Don't include placeholders like "(Author's Last Name, Year)" unless they're in the original text
-                    - Focus on rewording while preserving the original meaning and tone
+                    - Focus on rewording while preserving the original meaning and tone.
+                    - In academic writing, contractions (e.g., it’s instead of it is, can’t instead of cannot) should generally be avoided to maintain a formal tone.
                     
                     Original text: {original_text}
                     
