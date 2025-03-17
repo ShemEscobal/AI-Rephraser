@@ -10,7 +10,7 @@ load_dotenv()
 TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY") or st.secrets.get("TOGETHER_API_KEY", "")
 TOGETHER_API_URL = "https://api.together.xyz/v1/chat/completions"
 # Using Mistral 7B model which is more lightweight and works well for paraphrasing
-TOGETHER_MODEL = "mistralai/Mistral-7B-Instruct-v0.2"
+TOGETHER_MODEL = "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"
 
 # Set page configuration
 st.set_page_config(
